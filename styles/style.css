@@ -86,7 +86,7 @@ section p {
 
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(750px, 1fr)); /* Flexible columns */
+    grid-template-columns: repeat(2, 1fr); /* Flexible columns */
     gap: 10px;                              /* Spacing between images */
     padding: 20px;                          /* Optional padding for spacing */
     width: 100vw;                           /* Full width of the viewport */

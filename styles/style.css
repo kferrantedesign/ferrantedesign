@@ -96,7 +96,7 @@ section p {
 .image-grid img {
     width: 100%;                            /* Full width of grid cells */
     height: 600px;                           /* Maintain image proportions */
-    object-fit: cover;                      /* Ensures the image fits well in its space */
+    object-fit: contain;                      /* Ensures the image fits well in its space */
     display: block;                         /* Avoid extra spaces under images */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for visual depth */
 }*/

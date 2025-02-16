@@ -3,26 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>About</title>
     <link rel="stylesheet" href="style/contact.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- Load reCAPTCHA API -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
+     <!-- Navigation Bar -->
     <nav>
+    <ul>
+        <li><a href="index.html">Katrina Ferrante</a></li>
+    </ul>
+    <div class="nav-right">
         <ul>
-            <li><a href="index.html">Katrina Ferrante</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
-        <div class="nav-right">
-            <ul>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-    
+    </div>
+</nav>
+
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,11 +31,12 @@
     <link rel="stylesheet" href="styles/contact.css">
 </head>
 
-    <div class="container">
+<body>
+       <div class="container">
         <h1>Contact</h1>
         <!-- Updated Form -->
-    <form id="contact-form">
-    <label for="name">Name</label>
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSfr0avIiAiNY2-Gp1Xl3HrA3b__X4873VsUDCwdi25xVt2KhQ/formResponse" method="post" target="_blank">
+            <label for="name">Name</label>
             <input type="text" id="name" name="entry.1195516852" placeholder="Your Name" required>
             
             <label for="email">Email</label>
@@ -42,49 +44,9 @@
             
             <label for="message">Message</label>
             <textarea id="message" name="entry.280277207" placeholder="Your Message" required></textarea>
-            <!-- Google reCAPTCHA Widget -->
-            <div class="g-recaptcha" data-sitekey="6LemndgqAAAAAEetr17IOL1kWdPHtyQ8E0bTcrfQ"></div>
             
             <button type="submit">Send Message</button>
         </form>
     </div>
-<!-- JavaScript to Handle reCAPTCHA and Send Data -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const form = document.getElementById("contact-form");
-
-        form.addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent default form submission
-
-            var recaptchaResponse = grecaptcha.getResponse();
-            if (!recaptchaResponse) {
-                alert("Please verify that you are not a robot.");
-                return;
-            }
-
-            // Prepare form data
-            var formData = new FormData(form);
-            formData.append("g-recaptcha-response", recaptchaResponse);
-
-            // Send data to Google Apps Script
-            fetch("https://script.google.com/macros/s/AKfycbxJ-WBvqzZ2jI_nuatP8Dl0wLN24a-KG7IJPQrvbgvoNEI34KWSr5xuc2h0qXXQhy69/exec", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert("Message sent successfully!");
-                    form.reset();
-                    grecaptcha.reset();
-                } else {
-                    alert("reCAPTCHA verification failed. Please try again.");
-                }
-            })
-            .catch(error => console.error("Error:", error));
-        });
-    });
-</script>
-
 </body>
 </html>

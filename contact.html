@@ -72,7 +72,7 @@
                 formData.append("g-recaptcha-response", recaptchaResponse);
 
                 // Send data to Google Apps Script
-                fetch("YOUR_GOOGLE_APPS_SCRIPT_URL", {
+                fetch("https://script.google.com/macros/s/AKfycbx3dziQAOSAp1nh_RtpGmm9CDU__EKjInyixDJ4EuDR9Sub6hUA-hO7u5JSd4fYeESg/exec", {
                     method: "POST",
                     body: formData
                 })

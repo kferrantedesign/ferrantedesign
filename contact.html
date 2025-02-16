@@ -3,30 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>About</title>
     <link rel="stylesheet" href="style/contact.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- Load reCAPTCHA API -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
+     <!-- Navigation Bar -->
     <nav>
+    <ul>
+        <li><a href="index.html">Katrina Ferrante</a></li>
+    </ul>
+    <div class="nav-right">
         <ul>
-            <li><a href="index.html">Katrina Ferrante</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
-        <div class="nav-right">
-            <ul>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    </div>
+</nav>
 
-    <div class="container">
-        <h1>Contact</h1>
-        <!-- Updated Form -->
-        <form id="contact-form">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrolling Images and Static Text</title>
+    <link rel="stylesheet" href="styles/contact.css">
+</head>
+
+<body>
+     <div class="container">
+              <h1>Contact</h1>
+        <form action="submit-form.php" method="post">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" placeholder="Your Name" required>
             
@@ -36,12 +44,13 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" placeholder="Your Message" required></textarea>
             
-            <!-- Google reCAPTCHA Widget -->
+                <!-- Google reCAPTCHA Widget -->
             <div class="g-recaptcha" data-sitekey="6LemndgqAAAAAEetr17IOL1kWdPHtyQ8E0bTcrfQ"></div>
             
             <button type="submit">Send Message</button>
         </form>
     </div>
+          
 
     <!-- JavaScript to Handle reCAPTCHA and Send Data -->
     <script>

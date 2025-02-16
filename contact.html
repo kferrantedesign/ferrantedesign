@@ -48,5 +48,36 @@
             <button type="submit">Send Message</button>
         </form>
     </div>
+    
+    <script>
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    var recaptchaResponse = grecaptcha.getResponse();
+    if (!recaptchaResponse) {
+        alert("Please verify that you are not a robot.");
+        return;
+    }
+
+    var formData = new FormData(this);
+    formData.append("g-recaptcha-response", recaptchaResponse);
+
+    fetch("https://script.google.com/macros/s/AKfycbxclQ8WQbe2XA5UFFwkwYtufVGtx41L9SaHm3qh0OjuWutLYMRD7_LrFc69vemSMnAF/exec", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert("Message sent successfully!");
+            document.getElementById("contact-form").reset();
+            grecaptcha.reset();
+        } else {
+            alert("reCAPTCHA verification failed. Please try again.");
+        }
+    })
+    .catch(error => console.error("Error:", error));
+});
+</script>
 </body>
 </html>

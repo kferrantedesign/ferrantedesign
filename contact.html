@@ -1,42 +1,35 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title>Contact</title>
     <link rel="stylesheet" href="style/contact.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-     <!-- Load reCAPTCHA API -->
+    <!-- Load reCAPTCHA API -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
-     <!-- Navigation Bar -->
     <nav>
-    <ul>
-        <li><a href="index.html">Katrina Ferrante</a></li>
-    </ul>
-    <div class="nav-right">
         <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html">Katrina Ferrante</a></li>
         </ul>
-    </div>
-</nav>
+        <div class="nav-right">
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scrolling Images and Static Text</title>
-    <link rel="stylesheet" href="styles/contact.css">
-</head>
-
-<body>
-     <div class="container">
-              <h1>Contact</h1>
-        <form action="https://docs.google.com/forms/d/e/1FAIpQLSfr0avIiAiNY2-Gp1Xl3HrA3b__X4873VsUDCwdi25xVt2KhQ/formResponse" method="post" target="_blank">
+    <div class="container">
+        <h1>Contact</h1>
+        <!-- Updated Form -->
+        <form id="contact-form">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" placeholder="Your Name" required>
             
@@ -46,13 +39,12 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" placeholder="Your Message" required></textarea>
             
-                <!-- Google reCAPTCHA Widget -->
+            <!-- Google reCAPTCHA Widget -->
             <div class="g-recaptcha" data-sitekey="6LemndgqAAAAAEetr17IOL1kWdPHtyQ8E0bTcrfQ"></div>
             
             <button type="submit">Send Message</button>
         </form>
     </div>
-          
 
     <!-- JavaScript to Handle reCAPTCHA and Send Data -->
     <script>
@@ -73,7 +65,7 @@
                 formData.append("g-recaptcha-response", recaptchaResponse);
 
                 // Send data to Google Apps Script
-                fetch("https://script.google.com/macros/s/AKfycbx3dziQAOSAp1nh_RtpGmm9CDU__EKjInyixDJ4EuDR9Sub6hUA-hO7u5JSd4fYeESg/exec", {
+                fetch("YOUR_GOOGLE_APPS_SCRIPT_URL", {
                     method: "POST",
                     body: formData
                 })

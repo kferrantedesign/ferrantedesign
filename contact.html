@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +33,7 @@
     <div class="container">
         <h1>Contact</h1>
         <!-- Updated Form -->
-        <form id="contact-form">
+        <form id="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfr0avIiAiNY2-Gp1Xl3HrA3b__X4873VsUDCwdi25xVt2KhQ/formResponse" method="post" target="_blank">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" placeholder="Your Name" required>
             
@@ -72,7 +69,7 @@
                 formData.append("g-recaptcha-response", recaptchaResponse);
 
                 // Send data to Google Apps Script
-                fetch("https://script.google.com/macros/s/AKfycbx3dziQAOSAp1nh_RtpGmm9CDU__EKjInyixDJ4EuDR9Sub6hUA-hO7u5JSd4fYeESg/exec", {
+                fetch(https://script.google.com/macros/s/AKfycbxPQSjXwf1cm6qEt5WnTnI88k53Cdc3bmjCjRcwcbtV9C1wYA7vhW0RNoo6B5Zlx8sK/exec, {
                     method: "POST",
                     body: formData
                 })

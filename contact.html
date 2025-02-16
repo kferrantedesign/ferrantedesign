@@ -55,15 +55,20 @@
 
 <!-- JavaScript Validation -->
 <script>
-function validateRecaptcha() {
-    var response = grecaptcha.getResponse();
-    if (response.length === 0) {
-        alert("Please verify that you are not a robot.");
-        return false;
-    }
-    return true;
-}
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("contact-form");
+
+        form.addEventListener("submit", function (event) {
+            var recaptchaResponse = grecaptcha.getResponse();
+
+            if (!recaptchaResponse) { // Correct way to check if reCAPTCHA is empty
+                alert("Please verify that you are not a robot.");
+                event.preventDefault(); // Stop form submission
+            }
+        });
+    });
 </script>
+           
     </div>
 </body>
 </html>

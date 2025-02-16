@@ -35,8 +35,8 @@
        <div class="container">
         <h1>Contact</h1>
         <!-- Updated Form -->
-        <form action="https://docs.google.com/forms/d/e/1FAIpQLSfr0avIiAiNY2-Gp1Xl3HrA3b__X4873VsUDCwdi25xVt2KhQ/formResponse" method="post" target="_blank">
-            <label for="name">Name</label>
+<form id="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfr0avIiAiNY2-Gp1Xl3HrA3b__X4873VsUDCwdi25xVt2KhQ/formResponse" method="post" onsubmit="return validateRecaptcha(event)">
+    <label for="name">Name</label>
             <input type="text" id="name" name="entry.1195516852" placeholder="Your Name" required>
             
             <label for="email">Email</label>
@@ -50,7 +50,8 @@
         </form>
            
 <!-- Load reCAPTCHA API -->
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+           <script src="https://www.google.com/recaptcha/enterprise.js?render=6LdJn9gqAAAAAE-eJOc8_LfMCz2UghMaRi4aD2M9"></script>
+
     </div>
     
     <script>
@@ -82,6 +83,20 @@ document.getElementById("contact-form").addEventListener("submit", function(even
     })
     .catch(error => console.error("Error:", error));
 });
+        <script>
+function validateRecaptcha(event) {
+    event.preventDefault(); // Stop form submission
+
+    var recaptchaResponse = grecaptcha.getResponse(); // Get reCAPTCHA response
+    if (!recaptchaResponse) {
+        alert("Please complete the reCAPTCHA before submitting.");
+        return false;
+    }
+
+    // If reCAPTCHA is completed, submit the form
+    document.getElementById("contact-form").submit();
+}
+</script>
 </script>
 </body>
 </html>
